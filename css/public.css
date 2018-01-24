@@ -1,0 +1,57 @@
+@charset "utf-8";
+body, div, p, a, ul, li, span, b, input, img{
+  padding: 0;
+  margin: 0 auto; 
+  font: 1em "Microsoft YaHei","微软雅黑";
+  color: #222222;
+}
+ul, li {list-style: none;text-decoration: none;}
+a {text-decoration: none;color: #222222;-webkit-tap-highlight-color:transparent;}
+i {font-style: normal;}
+img {border: 0;}
+.clear {clear: both;}
+input:focus, textarea:focus { outline: none;}
+/*公用隐藏*/
+.public {white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow: hidden;}
+/*背景颜色*/
+body {background: #ffffff;}
+/*nav*/
+.nav {height: 44px;padding: 0 10px;text-align: center;overflow: hidden;position: relative;}
+.nav a.return {position: absolute;left: 10px;top: 10px;width: 12px;height: 21px;}
+.nav a.return img,.nav a.partake img, .chat .user img {display: block;width: 100%;}
+.nav a.partake, .Add_friends .nav .send, .chat .user {position: absolute;top: 10px;width: 20px;height: 20px;right: 10px;}
+.nav span{color: #222222;line-height: 44px;font-size: 1.2em;display: block;}
+/*head*/
+.sswnr .sswnr_img{
+  padding: 40px 0;
+}
+.sswnr_img img{
+  display: block;
+  width: 60%;
+}
+.sswnr .sswnr_txt{
+  text-align: center;
+}
+.sswnr .sswnr_img {padding-top: 0;}
+.list-header{
+  clear: both;
+}
+.list-header img{
+  width: 100%;
+  height: 140px;
+}
+.list-return{
+  display: inline-block;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background:url(../images/return.png) no-repeat 0 0;
+  height: 28px;
+  width: 28px;
+  background-size: 28px;
+  z-index: 9999;
+}
+/*.list-return img{
+  width: 28px;
+  height: 28px;
+}*/

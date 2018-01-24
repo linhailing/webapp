@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="" name="viewport">
+<meta content="" name="keywords">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no, minimal-ui" />
+<title>iBookway</title>
+<link rel="stylesheet" type="text/css" href="./css/public.css">
+<link rel="stylesheet" type="text/css" href="./css/xqStyle.css">
+<link rel="stylesheet" type="text/css" href="./css/detail.css">
+<link rel="stylesheet" type="text/css" href="./css/common.css">
+</head>
+<style>
+  .yysj{
+    display: inline-block;
+    width: 12px;
+    margin-right: 6px;
+  }
+</style>
+<body>
+  <div class="ajax_loading" hidden>
+    <div class="ajax_loading_img"></div>
+    <div class="ajax_loading_text">努力加载中，请稍候...</div>
+  </div>
+  <!-- 是否绑定手机-->
+  <div class="confirm_tx mobile" hidden>
+    <div class="conf_bg"></div>
+    <div class="tx_cont">
+      <p class="conf_ts conf_txt">成为会员，领取红包</p>
+      <div class="conf_but">
+        <button class="qrtx tx_ok cancel_pick_mobile">取消</button>
+        <button class="qrtx tx_error sure_pick_mobile">确认</button>
+      </div>
+    </div>
+  </div>
+  <div class="confirm_tx yj" hidden>
+    <div class="conf_bg"></div>
+    <div class="tx_cont">
+      <p class="conf_ts conf_txt">您的押金余额不足</p>
+      <div class="conf_but">
+        <button class="qrtx tx_ok cancel_cancel_yj">取消充值</button>
+        <button class="qrtx tx_error sure_cancel_yj">立即充值</button>
+      </div>
+    </div>
+  </div>
+  <div class="confirm_tx state" hidden>
+    <div class="conf_bg"></div>
+    <div class="tx_cont">
+      <p class="conf_ts state_txt">错误提示</p>
+      <div class="conf_but">
+        <button class="qrtx tx_ok cancel_state">取消支付</button>
+        <button class="qrtx tx_error sure_state">立即支付</button>
+      </div>
+    </div>
+  </div>
+  <div class="confirm_tx other-error" hidden>
+    <div class="conf_bg"></div>
+    <div class="tx_cont">
+      <p class="conf_ts conf_txt">出错了</p>
+      <div class="conf_but">
+        <button class="qrtx tx_error sure_other-error" style="width: 100%;">确定</button>
+      </div>
+    </div>
+  </div>
+  <!--库存-->
+  <div class="confirm_tx storage" hidden>
+    <div class="conf_bg"></div>
+    <div class="tx_cont">
+      <p class="conf_ts storage_txt">对不起，库存不足，看看别的商品。</p>
+      <div class="conf_but">
+        <button class="qrtx tx_error sure_storage" style="width: 100%;">确认</button>
+      </div>
+    </div>
+  </div>
+  <!--损坏-->
+  <div class="confirm_tx broken" hidden>
+    <div class="conf_bg"></div>
+    <div class="tx_cont">
+      <p class="conf_ts broken_txt">对不起，商品损坏，看看别的商品。</p>
+      <div class="conf_but">
+        <button class="qrtx tx_error sure_cancel_broken" style="width: 100%;">确认</button>
+      </div>
+    </div>
+  </div>
+  <div class="confirm_tx" hidden>
+    <div class="conf_bg"></div>
+    <div class="tx_cont">
+      <p class="conf_ts">错误提示</p>
+      <div class="conf_but">
+        <button class="qrtx tx_error" style="width: 100%;">确认</button>>
+      </div>
+    </div>
+  </div>
+  <!-- ibookway-温馨提示 -->
+  <!-- 立即借阅 -->
+  <div class="kindly_reminder" hidden>
+    <div class="kr_con">
+      <div class="kr_bt">
+        <span>确认借阅</span>
+        <a href="javascript:void(0);"><img src="./images/wxts_del.png" /></a></div>
+      <div class="kr_ts">温馨提示</div>
+      <div class="kr_txt">请确认您已抵达机器</div>
+      <button class="kr_bttn">立即借阅</button>
+    </div>
+    <!-- 开柜子 -->
+    <div class="kr_open" hidden>
+      <img src="./images/error.gif" />
+    </div>
+  </div>
+  <!-- ibookway-温馨提示 -->
+  <!-- 立即购买 -->
+  <div class="kindly_reminder_buy" hidden>
+    <div class="kr_con_buy">
+      <div class="kr_bt_buy">
+        <span>确认购买</span>
+        <a href="javascript:void(0);"><img src="./images/wxts_del.png" /></a></div>
+      <div class="kr_ts_buy">温馨提示</div>
+      <div class="kr_txt_buy">请确认您已抵达机器</div>
+      <button class="kr_bttn_buy">立即购买</button>
+    </div>
+    <!-- 开柜子 -->
+    <div class="kr_open_buy" hidden>
+      <img src="./images/error.gif" />
+    </div>
+  </div>
+  <!-- ibookway-出货失败 -->
+  <div class="confirm_tx shipment_failure" hidden>
+    <div class="conf_bg"></div>
+    <div class="tx_cont">
+      <p class="conf_ts conf_txt">机器打开失败！</p>
+      <div class="conf_but">
+        <button class="qrtx tx_error sf_bttn" style="width: 100%;">确认</button>
+      </div>
+    </div>
+  </div>
+  <!-- ibookway-列表详情页 -->
+  <div class="details">
+    <!-- 头部分内容 -->
+    <div class="header">
+      <a class="rback" href="javascript:void(0);" onclick="goto_back()"></a>
+      <div class="det_txt">详情</div>
+      <!--<a class="gwc gwcSel" href="./order/cart.html"><b></b></a>-->
+    </div>
+    <!-- nr -->
+    <div class="detContent">
+      <!-- 详情图片 -->
+      <div class="det_img">
+        <img src="./images/book.png" />
+        <!-- <div class="zxsd">
+          <a href="javascript: void(0);">在线试读</a>
+        </div> -->
+<!--        <div class="zxsd" style="bottom:0;">
+          <a href="javascript: void(0);" onclick="payToDeposit()">支付押金</a>
+        </div> -->
+      </div>
+      <div class="desc">
+        <p class="desc-title">搜身记</p>
+        <div class="desc-content" id="subString">
+          <p>产品王产品王产品王产品王产品王产品王产品王产品王产品王产 品王产品王产品王产品王产品王产品王产品王产品王产产品王产 品王产品王</p>
+          <p>产品王产品王产品王产品王产品王产品王产品王产品王产品王产 品王产品王产品王产品王产品王产品王产品王产品王产产品王产 品王产品王</p>
+          <p>产品王产品王产品王产品王产品王产品王产品王产品王产品王产 品王产品王产品王产品王产品王产品王产品王产品王产产品王产 品王产品王</p>
+          <p>产品王产品王产品王产品王产品王产品王产品王产品王产品王产 品王产品王产品王产品王产品王产品王产品王产品王产产品王产 品王产品王</p>
+        </div>
+      </div>
+      <div class="desc-item">
+        <ul>
+          <li>
+            <a href="">
+              <p class="item-left">定价 <span class="item-text">20.00元</span></p>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <p class="item-left">作者 <span class="item-text">冯唐著</span></p>
+              <p class="item-right">更多作品<span class="item-goto"></span></p>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <p class="item-left">出版 <span class="item-text">产品王出版社</span></p>
+              <p class="item-right">更多作品<span class="item-goto"></span></p>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <p class="item-left">分类 <span class="item-text">某某分类</span></p>
+              <p class="item-right">更多作品<span class="item-goto"></span></p>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <button class="buy_now" style="width: 50%;background:#fff;color: #626262;" onclick="scanRentnow('<%=goods_info.goods_id%>','<%=goods_info.goods_marketprice%>','lease','<%=goods_info.macid%>')">
+            VIP会员借阅
+          </button>
+          <button class="ljjy_but" id="ljjy" style="width: 50%;" onclick="buy_order_handle('<%=goods_info.goods_id%>','<%=goods_info.goods_price%>','<%=goods_info.macid%>')">
+            立即购买
+        </button>
+    </div>
+    <!-- <div id="show">
+    </div> -->
+  </div>
+  <div id="msg">已加入购物车！</div>
+  <div class="ytj" style="display: none;">已添加</div>
+  <script type="text/html" id="details">
+    <div class="detContent">
+      <!-- 详情图片 -->
+      <div class="det_img">
+        <img src="<%=goods_info.goods_image_url%>" />
+        <!-- <div class="zxsd">
+          <a href="javascript: void(0);">在线试读</a>
+        </div> -->
+<!--        <div class="zxsd" style="bottom:0;">
+          <a href="javascript: void(0);" onclick="payToDeposit()">支付押金</a>
+        </div> -->
+      </div>
+      <!-- 详情介绍 -->
+      <%if(goods_info){%>
+      <div class="det_intro">
+        <!-- 书简介 -->
+        <!-- <div class="name"><%=goods_info.goods_name%></div> -->
+        <div class="author">作<i>空</i>者：<span><%=goods_info.goods_author%></span></div>
+        <div class="press">出版社：<span><%=goods_info.goods_publisher%></span></div>
+        <div class="fixed_price">定<i>空</i>价：<span><b><%=goods_info.goods_marketprice%>元</b></span></div>
+        <!-- 定价&租借价格 -->
+        <!--<div class="dj_zjj">-->
+          <!--&lt;!&ndash; 定价 &ndash;&gt;-->
+          <!--<div class="fixed_price">定<i>空</i>价：<span><b><%=goods_info.goods_marketprice%>元</b></span></div>-->
+          <!--&lt;!&ndash; 租借价格 &ndash;&gt;-->
+          <!--<div class="zjjg">-->
+            <!--<span class="zj_txt">租借价：</span>-->
+            <!--<span class="price">¥<b><%=goods_info.goods_lease_price%></b>/天</span>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!-- 加入借阅车 -->
+        <!--<div class="jrjyc" id="jrjyc" onclick="addcart('<%=goods_info.goods_id%>',callbackCart)">-->
+          <!--<a href="javascript:void(0);"><span>加入借阅车</span></a>-->
+        <!--</div>&lt;!&ndash;  &ndash;&gt;-->
+      </div>
+      <%}%>
+      <!-- 简介 -->
+      <div class="synopsis">
+        <span class="syn_txt">简介</span>
+        <div class="syn_con">
+          <div id="piot">
+            <%=goods_body%>
+          </div>
+        </div>
+      </div>
+      <!-- 评论 -->
+      <!--<div class="comment">-->
+        <!--&lt;!&ndash; 写评论 &ndash;&gt;-->
+        <!--<div class="pl_bt">-->
+          <!--<span class="pl">评论<b>（9830）</b></span>-->
+          <!--<a class="xpl" href="#">写评论</a>-->
+        <!--</div>-->
+        <!--<div class="commList">-->
+          <!--<ul>-->
+            <!--<li>-->
+              <!--<a class="head_portrait" href="#"><img src="./access/images/tx.jpg" /></a>-->
+              <!--<div class="commRight">-->
+                <!--&lt;!&ndash; 名字点赞 &ndash;&gt;-->
+                <!--<div class="name_dz">-->
+                  <!--<a class="yhname" href="#">产品王产品王产品王产品王产品王产品王产品王</a>-->
+                  <!--<div class="zan"><span class="">20</span></div>-->
+                  <!--&lt;!&ndash; <span class="praise praSel">20</span> &ndash;&gt;-->
+                <!--</div>-->
+                <!--<p class="criticism">产品王产品王产品王产品王产品王产品王产品王</p>-->
+                <!--&lt;!&ndash; 时间 &ndash;&gt;-->
+                <!--<div class="time"><b>6</b>小时前</div>-->
+              <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--<a class="head_portrait" href="#"><img src="./access/images/tx.jpg" /></a>-->
+              <!--<div class="commRight">-->
+                <!--&lt;!&ndash; 名字点赞 &ndash;&gt;-->
+                <!--<div class="name_dz">-->
+                  <!--<a class="yhname" href="#">产品王</a>-->
+                  <!--<div class="zan"><span class="">0</span></div>-->
+                <!--</div>-->
+                <!--<p class="criticism">搜神记搜神1111111111111wwwwwwwwwwwsssssssssss</p>-->
+                <!--&lt;!&ndash; 时间 &ndash;&gt;-->
+                <!--<div class="time"><b>6</b>小时前</div>-->
+              <!--</div>-->
+            <!--</li>-->
+          <!--</ul>-->
+        <!--</div>&lt;!&ndash; commList-end &ndash;&gt;-->
+        <!--&lt;!&ndash; 查看更多 &ndash;&gt;-->
+        <!--<a class="see_more" href="#">查看更多评论<%=goods_info.goto%></a>-->
+      <!--</div>-->
+      <!-- 立即借阅&定位 -->
+
+      <%if(goods_info.is_borrow == 0 && goods_info.is_buy == 0 && goods_info.goods_storage == 1){%>
+        <%if(goods_info.goods_goto == '机器借阅'){%>
+        <button class="buy_now" style="width: 34%;background:#fff;color: #626262;border-top: 0.5px solid #c5c5c5;" onclick="rentnow('<%=goods_info.goods_id%>','<%=goods_info.goods_marketprice%>','<%=goods_info.macid%>')">
+            VIP会员借阅</button>
+        <button class="ljjy_but" id="ljjy" style="width: 66%;" onclick="nowBuyMac('<%=goods_info.goods_id%>')">
+            立即购买
+        </button>
+        <%}else{%>
+          <button class="buy_now" style="width: 34%;background:#fff;color: #626262;border-top: 0.5px solid #c5c5c5;" onclick="scanRentnow('<%=goods_info.goods_id%>','<%=goods_info.goods_marketprice%>','lease','<%=goods_info.macid%>')">
+            VIP会员借阅
+          </button>
+          <button class="ljjy_but" id="ljjy" style="width: 66%;" onclick="buy_order_handle('<%=goods_info.goods_id%>','<%=goods_info.goods_price%>','<%=goods_info.macid%>')">
+            立即购买
+        </button>
+        <%}%>
+      <%}else if((goods_info.is_borrow == 0 || goods_info.is_buy == 0) && goods_info.goods_storage == 1){%>
+        <%if(goods_info.is_borrow == 0){%>
+          <%if(goods_info.goods_goto == '机器借阅'){%>
+          <button class="buy_now" style="width: 100%;background:#fff;color: #626262;border-top: 0.5px solid #c5c5c5;"  onclick="rentnow('<%=goods_info.goods_id%>','<%=goods_info.goods_marketprice%>','<%=goods_info.macid%>')">
+              VIP会员借阅</button>
+          <%}else{%>
+            <button class="buy_now" style="width: 100%;background:#fff;color: #626262;border-top: 0.5px solid #c5c5c5;"  onclick="scanRentnow('<%=goods_info.goods_id%>','<%=goods_info.goods_marketprice%>','lease','<%=goods_info.macid%>')">
+              VIP会员借阅
+            </button>
+          <%}%>
+        <%}else if(goods_info.is_buy == 0){%>
+          <%if(goods_info.goods_goto == '机器借阅'){%>
+          <button class="ljjy_but" style="width: 100%;" onclick="nowBuyMac('<%=goods_info.goods_id%>')">
+              立即购买
+          </button>
+          <%}else{%>
+            <button class="ljjy_but" style="width: 100%;" onclick="buy_order_handle('<%=goods_info.goods_id%>','<%=goods_info.goods_price%>','<%=goods_info.macid%>')">
+              立即购买
+          </button>
+          <%}%>
+        <%}%>
+      <%}else{%>
+      <button class="ljjy_but on_loan">已借出</button>
+      <%}%>
+    </div><!-- nr-end -->
+    <!-- 尾部内容 -->
+    <%if(goods_commend_list){%>
+    <!--<div class="like">-->
+      <!--<p class="like_txt">你可能会喜欢</p>-->
+      <!--<div class="like_list">-->
+        <!--<ul>-->
+          <!--<% for(var i = 0; i < goods_commend_list.length; i++){%>-->
+          <!--<li>-->
+            <!--<a href="xq.html?id=<%=goods_commend_list[i].goods_id%>">-->
+              <!--<img class="like_img" src="<%=goods_commend_list[i].goods_image_url%>" />-->
+              <!--<p class="like_name"><%=goods_commend_list[i].goods_name%></p>-->
+            <!--</a>-->
+            <!--&lt;!&ndash; 评分 &ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="like_pf"><span>8.3</span>分</div>&ndash;&gt;-->
+          <!--</li>-->
+          <!--<%}%>-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</div>&lt;!&ndash; like-end &ndash;&gt;-->
+    <%}%>
+  </script>
+</body>
+<script src="./js/zepto.min.js"></script>
+<script src="./js/config.js"></script>
+<script src="./js/template.js"></script>
+<script src="./js/common.js"></script>
+<!-- <script src="./access/js/xq.js"></script>
+<script src="./access/comm-js/helper.js"></script>
+<script src="./access/comm-js/utils.js"></script>
+<script src="./access/js/tmpl/jquery_002.js"></script> -->
+<script>
+  // 显示隐藏(简介内容展开收起)
+  $(function(){
+    var text = $("#piot").text();
+    var flag = text.length > 20 ? true : false;
+    if(flag){
+      $("#piot").html("");
+      $("#piot").append("<p>" + text.substring(0, 60) 
+            + "<span id='hide' style='display:none'>" + text.substring(60) + "</span>"
+            + "...<a href='javascript:;' id='open'>展开</a></p>");
+    }
+    //
+    $("#open").click(function(){
+      if(flag){
+        $("#open").text("收起");
+        $("#hide").show();
+        flag = false;
+      } else{
+        $("#open").text("展开");
+        $("#hide").hide();
+        flag = true;
+      }
+    });
+    //想看点击变色
+    $('.score_record .score').click(function(){
+      $(this).addClass('scoSel').siblings().removeClass('scoSel');
+    });
+  });
+  $('.kr_bt a').click(function(){
+    $('.kindly_reminder').hide();
+  });
+    $('.kr_bt_buy a').click(function(){
+        $('.kindly_reminder_buy').hide();
+    });
+</script>
+<script>
+  var go = GetQueryString('go');
+  if(go == 'index'){
+    pushHistory();
+    window.addEventListener("popstate", function(e) {
+      window.location = WapSiteUrl + '/index.html?type_url=store';
+    }, false);
+    function pushHistory() {
+      var state = {
+        title: "title",
+        url: "#"
+      };
+      window.history.pushState(state, "title", "#");
+    }
+  }
+  // 选择还书方式
+  $('.returnMode .rmList label').click(function(){
+    $(this).addClass('sel3').siblings().removeClass('sel3');
+  });
+$('.returnMode .tmbj2').click(function(){
+  $('.returnMode').hide();
+});
+$('.returnMode .rm_txt a').click(function(){
+  $('.returnMode').hide();
+});
+</script>
+<script>
+  function callbackCart() {
+    //todo 添加购物车成功后条用购物车处理函数
+    //alert('dddd');
+    var offset = $(".gwc").offset();
+    var addcar = $('#jrjyc');
+    var img = $('.det_img').find('img').attr('src');
+    var flyer = $('<img class="u-flyer" src="'+img+'">');
+    console.log(flyer);
+    flyer.fly({
+      start: {
+        left: event.pageX,
+        top: event.pageY,
+      },
+      end: {
+        left: offset.left+10,
+        top: offset.top+10,
+        width: 10,
+        height: 10
+      },
+      onEnd: function(){
+        //console.log('onEnd');
+        $("#msg").show().animate({width: '250px'}, 200).fadeOut(1000);
+        //addcar.css("cursor","default").removeClass('orange');
+        $("#ytj").show().animate({width: '250px'}, 200).fadeOut(1000);
+        this.destory();
+        $('.header .gwc').addClass('gwcSel');
+      }
+    });
+    console.log("end flyer");
+  }
+  /**
+   * 文章字符串截取
+   */
+  function subString(id){
+    var content = document.getElementById(id);
+    var text = content.innerHTML;//text是所有的文本
+    var newBox = document.createElement("div"); //截取要一开始先显示的一部分放入newBox里面
+    newBox.innerHTML = text.substring(0,60);
+    var btn = document.createElement('p');
+    btn.setAttribute('class', 'more');
+    //<p class="more" id="more"></p>
+    //var btn = '';
+    content.innerHTML = "";
+    content.appendChild(newBox);
+    content.appendChild(btn);
+    text.length > 60 ? btn.setAttribute('class', 'more open') : btn.setAttribute('class', 'more');
+    btn.onclick = function(){
+      var btnP = btn.getAttribute('class');
+      if (btnP == "more open"){
+        btn.setAttribute('class', 'more')
+        newBox.innerHTML = text;
+      }else{
+        btn.setAttribute('class', 'more open')
+        newBox.innerHTML = text.substring(0,60);
+      }
+    }
+  }
+  subString('subString');
+</script>
+</html>

@@ -1,0 +1,9 @@
+.grid{
+  display: flex;
+  padding: 10px;
+}
+.grid-item{
+  flex: 1;
+  background-color: #979797;
+  /*width: 200px;*/
+}

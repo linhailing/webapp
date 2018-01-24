@@ -1,0 +1,225 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background-color: #f2f2f2;
+}
+.container{
+  width: 100%;
+  height: 100%;
+  padding: 44px 0 0px;
+}
+.pay_header{
+  position: fixed;
+  height: 42px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  /*border-bottom: 1px solid #eee;*/
+}
+.header-left{
+  float: left;
+  margin-left: 10px;
+  text-align: center;
+  padding: 10px 0;
+  width: 20px;
+}
+.header-image{
+  height: 21px;
+  width: 12px;
+}
+.header-title{
+  float: left;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  width: 260px;
+  line-height: 42px;
+  color: #323232;
+}
+.book-content{
+  width: 100%;
+  background-color: #fff;
+}
+.book-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0;
+}
+.book-header img{
+  height: 20px;
+  width: 20px;
+  margin-left: 7px;
+}
+.book-header p{
+  margin-left: 7px;
+  font-size: 15px;
+}
+.books-info{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  margin: 5px 0;
+  margin-bottom: 10px;
+}
+.book-name{
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  overflow: hidden;
+}
+.book-price{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.price-text{
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+.title-text{
+  font-size: 13px;
+  font-weight: 300;
+}
+.title-text .text-icon{
+  display: inline-block;
+  font-size: 12px;
+  transform: rotate(45deg);
+  -ms-transform:rotate(45deg);   /* IE 9 */
+  -moz-transform:rotate(45deg);  /* Firefox */
+  -webkit-transform:rotate(45deg); /* Safari 和 Chrome */
+  -o-transform:rotate(45deg);  /* Opera */
+}
+.book-footer{
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  justify-content: flex-end;
+}
+.footer-title{
+  font-size: 15px;
+  margin-right: 7px;
+}
+.footer-txt{
+  font-size: 14px;
+  font-weight: 300;
+}
+.pay_other{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  background-color: #fff;
+  height: 40px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0  10px;
+}
+.pay_other .pay-title{
+  font-size: 15px;
+  color: #444549;
+  font-weight: 600;
+}
+.pay_other .pay-text{
+  font-size: 15px;
+  color: #979797;
+}
+.pay{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+.pay .pay-header{
+  height: 40px;
+  line-height: 40px;
+  padding-left: 15px;
+}
+.pay-list{
+  display: flex;
+  flex-direction: column;
+}
+.pay-list .pay-item{
+  border-top: 1px solid #eee;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.pay-list .pay-item img{
+  height: 30px;
+  width: 30px;
+  padding-left: 13px;
+}
+.pay-list .pay-item .pay-sel{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-right: 15px;
+}
+.pay-list .pay-item .pay-sel p{
+  padding-left: 19px
+}
+.pay-list .pay-item.sel> .pay-sel label{
+  background: url('../images/xz.png') no-repeat 0 0;
+  background-size: 18px;
+}
+.pay-list .pay-item .pay-sel label{
+  -webkit-appearance: none;
+  background: url('../images/wxz.png') no-repeat 0 0;
+  width: 18px;
+  height: 18px;
+  margin-top: 10px;
+  background-size: 18px;
+}
+.pay-list .pay-item label input{
+  display: none;
+}
+.pay-footer{
+  width: 100%;
+  height: 54px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.pay-footer .footer-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 15px;
+}
+.pay-footer .footer-text .footer-title{
+  font-size: 18px;
+  color: #323232;
+}
+.pay-footer .footer-text .footer-price{
+  font-size: 14px;
+  color: #979797;
+  text-decoration: line-through;
+}
+.pay-footer .footer-text .footer-free{
+  font-size: 14px;
+  color: #979797;
+}
+.pay-footer .footer-btn{
+  -webkit-appearance:none;
+  height: 37px;
+  width: 125px;
+  margin-right: 15px;
+  background-color: #00cc99;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="css/pay.css">
+  <title>支付</title>
+</head>
+<body>
+  <div class="container">
+    <div class="pay_header">
+      <a href="" class="header-left"><img class="header-image" src="images/fh.png"></a>
+      <p class="header-title">确认支付</p>
+    </div>
+    <div class="book-content">
+      <div class="book-header">
+        <img src="images/sp.png" />
+        <p>长宁体操中心店...</p>
+      </div>
+      <div class="books-info">
+        <div class="book-name">
+          <img src="images/book.png">
+          <p>巨人的陨落</p>
+        </div>
+        <div class="book-price">
+          <p class="price-text">2.00元</p>
+          <p class="title-text"><span class="text-icon">+</span>1本</p>
+        </div>
+      </div>
+      <div class="book-footer">
+        <p class="footer-title">共1本</p>
+        <p class="footer-txt"><span>小计:</span>2.00元</p>
+      </div>
+    </div>
+    <div class="pay_other">
+      <p class="pay-title">优惠方式</p>
+      <p class="pay-text">无优惠券</p>
+    </div>
+    <div class="pay">
+      <p class="pay-header">付款方式</p>
+      <div class="pay-list">
+        <ul>
+          <li class="pay-item sel" for="wx">
+            <img src="images/wxzf.png">
+            <div class="pay-sel">
+              <p>微信支付</p>
+              <label class="" for="wx">
+                <input type="radio" name="name" id="wx">
+              </label>
+            </div>
+          </li>
+          <li class="pay-item" for="qt">
+            <img src="images/yrzf.png">
+            <div class="pay-sel">
+              <p>余额支付</p>
+              <label for="qt">
+                <input type="radio" name="name" id="qt">
+              </label>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="pay-footer">
+      <div class="footer-text">
+        <p class="footer-title">合计2.00元 <span class="footer-price">2.0元</span></p>
+        <p class="footer-free">已优惠:0.0元</p>
+      </div>
+      <button class="footer-btn" onclick="submit_pay('<%=%>')">确认支付</button>
+    </div>
+  </div>
+</body>
+</html>
