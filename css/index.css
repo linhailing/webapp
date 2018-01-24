@@ -1,0 +1,109 @@
+.nav-banner{
+  display: block;
+  height: 135px;
+}
+.nav-banner .nav-banner-img{
+  width: 100%;
+  height: 100%;
+}
+.nav-tab{
+  width: 100%;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: row;
+}
+.nav-tab .tab-item{
+  width: 25%;
+}
+.nav-tab .tab-item a{
+  display: block;
+  width: 100%;
+  font-size: 0.94em;
+  color: #323232;
+  line-height: 34px;
+  height: 35px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+.nav-tab .tab-item.sel{
+  width: 25%;
+}
+.nav-tab .tab-item.sel a{
+  display: block;
+  width: 100%;
+  font-size: 0.94em;
+  color: #0dac29;
+  line-height: 34px;
+  height: 35px;
+  text-align: center;
+  font-weight: 600;
+  border-bottom: 2px solid #0dac29;
+}
+.tab-list{
+  display: block;
+  height: auto;
+}
+.list-item{
+  display: flex;
+  flex-direction: column;
+}
+.list-item .item-line{
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0;
+}
+.list-item .item-line .line-img{
+  margin-left: 15px;
+  height: 120px;
+  width: 120px;
+  margin-right: 20px;
+}
+.list-item .item-line .line-img img{
+  max-width: 120px;
+  max-height: 120px;
+}
+.list-item .item-line .line-desc{
+  display: flex;
+  flex-direction: column;
+}
+.list-item .item-line .line-desc .desc-title{
+  font-size: 0.94em;
+  color: #323232;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+.list-item .item-line .line-desc .desc-author{
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:1;
+  font-size: 0.75em;
+  color:#626262;
+  margin-top: 10px;
+}
+.list-item .item-line .line-desc .desc-intro{
+  font-size: 0.75em;
+  color: #979797;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  margin-top: 10px;
+}
+.tab-list .list-item .tab-item-list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.tab-list .list-item .tab-item-list .item-li{
+  width: 33.33%;
+}
+.tab-list .list-item .tab-item-list .item-li a{
+  display: block;
+  width: 100%;
+}

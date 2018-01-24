@@ -1,0 +1,17 @@
+@charset "utf-8";
+body, div, p, a, ul, li, span, b, input, img,button,i{
+  padding: 0;
+  margin: 0;
+  font: 1em "Microsoft YaHei","微软雅黑";
+  color: #222222;
+}
+ul, li {list-style: none;text-decoration: none;}
+a {text-decoration: none;-webkit-tap-highlight-color:transparent;display: block;}
+img {border: 0;}
+.clear{clear: both;}
+.clear:after{
+  display: block;
+  content: '';
+}
+input:focus, textarea:focus, select:focus { outline: none;}
+
