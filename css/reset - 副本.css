@@ -1,11 +1,8 @@
 @charset "utf-8";
-html{
-  font-size: 100px;
-}
 body, div, p, a, ul, li, span, b, input, img,button,i{
   padding: 0;
   margin: 0;
-  font: 16px "Microsoft YaHei","微软雅黑";
+  font: 1em "Microsoft YaHei","微软雅黑";
   color: #222222;
 }
 ul, li {list-style: none;text-decoration: none;}
